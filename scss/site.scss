@@ -1,0 +1,329 @@
+@import "var_mix";
+
+/*=======================================
+Site CSS:
+
+1. Normalize
+2. General
+3. Structure
+4. Header & Footer
+5. Content
+6. Components
+x. Media Queries
+
+=========================================*/
+
+/*================================================
+  1. Normalize
+================================================*/
+
+@import "normalize";
+
+/*================================================
+  1. Normalize - end
+================================================*/
+
+/*================================================
+  2. General
+================================================*/
+
+body {
+	margin: 0;
+	font-family: 'Lato', Arial, sans-serif;
+	font-size: 1em;
+	color: #000;
+}
+body .inverse {
+    color: #fff;
+}
+
+/* Typography */
+p {
+	margin: 0 0 1.2em 0;
+	line-height: 150%;
+}
+
+::selection {
+	background: #009999;
+}
+::-moz-selection {
+	background: #009999;
+}
+
+.highlight {
+	color: #000;
+    font-weight: 500;
+}
+
+.text-centered {
+    text-align: center;
+}
+
+.separator {
+    margin: 0 10px;
+    color: #333;
+}
+
+/* Lists */
+ul, ol {
+	margin: 0 0 20px 0;
+	line-height: 150%;
+    text-align: left;
+}
+
+
+/* Images */
+img {
+	max-width: 100%;
+}
+
+.right {
+    float: right;
+    max-width: 40%;
+    margin: 0 0 20px 20px;
+}
+.left {
+    float: left;
+    max-width: 40%;
+    margin: 0 20px 20px 0;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+	margin: 0 0 20px 0;
+	font-weight: 500;
+}
+
+/* Links */
+a, a:link, a:visited {
+	color: #000;
+    font-weight: 500;
+	text-decoration: none;
+}
+.inverse a {
+	color: #fff;
+}
+a:hover, .inverse a:hover {
+	color: #333;
+}
+
+/* Buttons */
+a.button {
+    position: relative;
+    display: inline-block;
+    margin: 10px 0;
+    padding: 15px 25px;
+    background: #000;
+    color: #fff;
+    @include font-size(18);
+    line-height: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: left;
+    vertical-align: middle;
+}
+    a.button:hover {
+        background-color: #fff;
+        color: #000;
+    }
+
+
+/* Forms */
+
+.fields-wrap:before, .fields-wrap:after {
+  content: " ";
+  display: table;
+}
+.fields-wrap:after{
+  clear: both;
+}
+.form-item-container-left {
+  float: left;
+  width: 48%;
+  margin-right: 2%;
+}
+.form-item-container-right {
+  float: left;
+  width: 48%;
+  margin-left: 2%;
+}
+
+fieldset {
+  position: relative;
+  margin: 0 0 20px 0;
+  padding: 0;
+  border: 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="email"], textarea {
+    display: block;
+    width: 98%;
+    padding: 10px 1% 10px 0;
+    line-height: 26px;
+    text-indent: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    outline: none;
+    color: #fff;
+}
+
+select {
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+
+input[type="submit"], input[type="button"] {
+    display: inline-block;
+    padding: 10px 25px;
+    line-height: 26px;
+    border: 0;
+    background: #000;
+    color: #fff;
+    font-weight: 500;
+    text-transform: uppercase;
+    outline: none;
+}
+input[type="submit"]:hover, input[type="button"]:hover {
+    background: #333;
+}
+
+/* Clearfix */
+.wrap:before, .wrap:after,
+.page:before, .page:after {
+    content: " ";
+    display: table;
+}
+.wrap:after,
+.page:after {
+    clear: both;
+}
+.wrap, .page {
+    *zoom: 1;
+}
+
+/* Grid */
+.col-2 {
+  float: left;
+  width: 48%;
+  margin-left: 4%;
+}
+.col-2:first-child {
+  margin-left: 0;
+}
+.col-3 {
+  float: left;
+  width: 30.6666667%;
+  margin-left: 4%;
+}
+.col-3.span2 {
+  width: 65.3333334%;
+}
+.col-3:first-child {
+  margin-left: 0;
+}
+.col-4 {
+  float: left;
+  width: 22%;
+  margin-left: 4%;
+}
+.col-4:first-child {
+  margin-left: 0;
+}
+.col-5 {
+  float: left;
+  width: 16%;
+  margin-left: 4%;
+}
+.col-5:first-child {
+  margin-left: 0;
+}
+
+
+/*================================================
+  2. General - end
+================================================*/
+
+/*================================================
+  3. Structure
+================================================*/
+
+.page {
+    position: relative;
+	width: 94%;
+	max-width: 1200px;
+	margin: 0 auto;
+    padding: 40px 0;
+}
+
+
+/*------------------------
+	Header
+--------------------------*/
+
+/*------------------------
+	Footer
+--------------------------*/
+
+
+/*================================================
+  3. Structure - end
+================================================*/
+
+/*================================================
+  4. Content
+================================================*/
+
+
+/*================================================
+  4. Content - end
+================================================*/
+
+/*================================================
+  5. Components
+================================================*/
+
+/*------------------------
+  Blog feed
+--------------------------*/
+
+/* Hide title */
+.gfg-title {
+	display: none;
+}
+/* Hide rotating entry */
+.gfg-entry {
+	display: none;
+}
+/* Hide entry list */
+/*.gfg-list {
+	display: none;
+}*/
+
+
+/*================================================
+  5. Components - end
+================================================*/
+
+/*================================================
+  x. Media queries
+================================================*/
+
+@media screen and (max-width:1024px) {
+}
+
+@media screen and (max-width:767px) {
+}
+
+@media screen and (max-width:480px) {
+}
+
+/*================================================
+  x. Media queries - end
+================================================*/
+

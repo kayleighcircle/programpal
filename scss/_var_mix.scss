@@ -1,0 +1,33 @@
+/* ======== Variables ======== */
+
+$lightgray: #555555;
+$darkgray: #444444;
+$white: #ffffff;
+
+$content-text: 'PT Sans', Arial, sans-serif;
+
+$default-font-size: 16 !default;
+
+
+/* ======== Mix-ins ======== */
+
+// Font sizing
+@mixin font-size($target-font-size, $base-font-size: $default-font-size) {
+  font-size: ($target-font-size) + px;
+  font-size: ($target-font-size / $base-font-size) + rem;
+}
+
+// Clear fix
+@mixin clearfix {
+  &:before,
+  &:after {
+      content: "";
+      display: table;
+  } 
+  &:after {
+      clear: both;
+  }
+  & {
+      zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+  }
+}
