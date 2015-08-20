@@ -13,10 +13,18 @@
 		        array(
 		            'taxonomy'  => 'show_category',
 		            'field'     => 'slug',
-		            'terms'     => 'new-show-2015'
+		            'terms'     => 'new-show-2015',
+		            'operator'  => 'IN'
+	            ),
+		        array(
+		            'taxonomy'  => 'show_category',
+		            'field'     => 'slug',
+		            'terms'     => 'tba',
+		            'operator'  => 'NOT IN'
 	            )
 		    ) );
 		$tvlist = new WP_Query( $args );
+		$showCount = $tvlist->post_count;
 	?>
 
 	<?php while ( $tvlist->have_posts() ) : $tvlist->the_post(); ?>
@@ -29,9 +37,11 @@
 			</article>
 		</div>
 		<?php
-			if ( $i != 0 && $i % 2 == 0 ) {
-				echo '</div>';
-				echo '<div class="wrap nomargin-cols">';
+			if ( $i == 0 || $i % 2 == 0 ) {
+				if ( $i != ($showCount - 1) ) {
+					echo '</div>';
+					echo '<div class="wrap nomargin-cols">';
+				}
 			}
 		?>
 	<?php $i++; endwhile; ?>

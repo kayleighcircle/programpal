@@ -234,17 +234,30 @@ a.button.inverse {
     border-color: $primary-coral;
   }
 
+a.more.button {
+  margin: 0 20px;
+  padding: 5px 10px;
+  background-color: $primary-coral;
+  border: 0;
+  color: #fff;
+  @include font-size(14);
+  line-height: 100%;
+}
+
 
 /* Forms */
 form {
   margin-top: 40px;
 }
 
-label {
+label, #page-content .ninja-forms-form-wrap label {
   display: block;
   margin-bottom: 5px;
   font-family: 'Jaapokki', 'Cabin', Arial, sans-serif;
+  @include font-size(28);
+  @include line-height(28);
   color: #666;
+  font-weight: normal;
 }
 label small {
   color: #999;
@@ -259,7 +272,7 @@ input[type="text"], input[type="email"], textarea {
   background-color: #fff;
   border: 1px solid #ddd;
   outline: none;
-  color: #999;
+  color: $primary-coral;
 }
 
 textarea {
@@ -273,7 +286,7 @@ select {
 
 input[type="submit"], input[type="button"] {
   display: inline-block;
-  padding: 10px 25px;
+  padding: 20px 35px;
   line-height: 26px;
   background: $primary-coral;
   border: 0;
@@ -281,9 +294,27 @@ input[type="submit"], input[type="button"] {
   font-weight: 500;
   text-transform: uppercase;
   outline: none;
+  -webkit-transition: all .1s ease-in-out;
+  -moz-transition: all .1s ease-in-out;
+  -ms-transition: all .1s ease-in-out;
+  -o-transition: all .1s ease-in-out;
+  transition: all .1s ease-in-out;
 }
 input[type="submit"]:hover, input[type="button"]:hover {
   background: $primary-green;
+}
+
+/* Ninja Forms */
+.ninja-forms-required-items {
+  margin-bottom: 20px;
+  font-size: 90%;
+  font-style: italic;
+}
+
+.ninja-forms-field-description {
+  margin: 10px 0;
+  font-size: 90%;
+  color: #999;
 }
 
 /* Clearfix */
@@ -373,7 +404,11 @@ input[type="submit"]:hover, input[type="button"]:hover {
 --------------------------*/
 
 #feature-header {
-  padding: 180px 0;
+  position: fixed;
+  top: 0;
+  left: 18%;
+  width: 82%;
+  height: 716px;
   background-image: url(../images/banner-television.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -382,6 +417,9 @@ input[type="submit"]:hover, input[type="button"]:hover {
 }
 
 #feature-header .page-wrap {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
   max-width: 800px;
 }
 
@@ -402,6 +440,8 @@ input[type="submit"]:hover, input[type="button"]:hover {
 
 #side-nav {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 18%;
   height: 100%;
   background-color: $primary-darkgray;
@@ -435,9 +475,14 @@ input[type="submit"]:hover, input[type="button"]:hover {
   padding: 40px 0;
 }
 
-#page-content {
+#page-content, #page-footer {
+  position: relative;
   width: 82%;
   margin-left: 18%;
+}
+
+#page-content {
+    min-height: 400px;
 }
 
 
@@ -511,6 +556,12 @@ a:hover .icon .icon-fill, .active a .icon .icon-fill {
 ================================================*/
 
 /* Premieres */
+.home .premiere-list {
+  position: relative;
+  margin-top: 716px;
+  background-color: #fff;
+}
+
 .premiere-list {
   color: #999;
 }
@@ -539,6 +590,48 @@ a:hover .icon .icon-fill, .active a .icon .icon-fill {
   width: 60%;
   margin: 0;
 }
+.premiere-list h3.show-title a {
+  position: relative;
+  color: $primary-coral;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -ms-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+.premiere-list h3.show-title a:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: $primary-green;
+  opacity: 0;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -ms-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+.premiere-list h3.show-title a:hover {
+  color: $primary-green;
+  text-decoration: none;
+}
+.premiere-list h3.show-title a:hover:after {
+  opacity: 1;
+  bottom: -6px;
+}
+.premiere-list h3.show-title .external-link {
+  display: inline-block;
+  max-width: 20px;
+  margin-left: 10px;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -ms-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
 
 .premiere-list .show-info {
   display: block;
@@ -546,7 +639,7 @@ a:hover .icon .icon-fill, .active a .icon .icon-fill {
   width: 35%;
   margin: 0;
   @include font-size(24);
-  line-height: 100%;
+  line-height: 2.6rem;
   text-align: right;
 }
 
@@ -600,7 +693,7 @@ a:hover .icon .icon-fill, .active a .icon .icon-fill {
 }
 
 .new-show-list .wrap {
-  margin-top: 20px;
+  margin-top: 4%;
 }
 .new-show-list .wrap:first-child {
   margin-top: 0;
@@ -1039,9 +1132,13 @@ img.mfp-img {
   #side-nav {
     width: 22%;
   }
-  #page-content {
+  #page-content, #page-footer {
     width: 78%;
     margin-left: 22%;
+  }
+  #feature-header {
+    left: 22%;
+    width: 78%;
   }
 }
 
@@ -1049,9 +1146,13 @@ img.mfp-img {
   #side-nav {
     width: 16%;
   }
-  #page-content {
+  #page-content, #page-footer {
     width: 84%;
     margin-left: 16%;
+  }
+  #feature-header {
+    left: 16%;
+    width: 84%;
   }
 
   #side-nav .logo {
@@ -1085,8 +1186,13 @@ img.mfp-img {
     width: 200px;
   }
 
-  #page-content {
+  #page-content, #page-footer {
     margin-left: 8%;
+    width: 92%;
+  }
+
+  #feature-header {
+    left: 8%;
     width: 92%;
   }
 
@@ -1206,6 +1312,43 @@ img.mfp-img {
     padding-bottom: 40px;
     border-top: 2px solid #fff;
   }
+
+  #page-title {
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  #page-title .title {
+    float: none;
+    width: auto;
+    margin: 0;
+  }
+  #page-title .title-icon {
+    float: none;
+    width: auto;
+    max-width: 100px;
+    margin: 0 auto 20px auto;
+  }
+
+  .sort {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width:1023px) {
+  #feature-header {
+    position: relative;
+    top: inherit;
+    left: inherit;
+    height: auto;
+    width: 100%;
+  }
+  #feature-header .page-wrap {
+    top: inherit;
+    transform: none;
+  }
+  .home .premiere-list {
+    margin-top: 0;
+  }
 }
 
 @media screen and (max-width:767px) {
@@ -1219,9 +1362,13 @@ img.mfp-img {
     width: inherit;
   }
 
-  #page-content {
+  #page-content, #page-footer {
     margin: 0;
     width: 100%;
+  }
+
+  #feature-header {
+    padding: 20px 0;
   }
 
   #side-nav .logo, #side-nav.open .logo  {
@@ -1284,9 +1431,6 @@ img.mfp-img {
   #main-nav a {
     padding-top: 40px;
   }
-}
-
-@media screen and (max-width:480px) {
 }
 
 

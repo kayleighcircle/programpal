@@ -12,8 +12,10 @@
 		<section id="page-title" class="wrap">
 			<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/calendar.svg" alt="Calendar" class="title-icon">
 			<section class="title">
-				<h1>News shows</h1>
-				<span class="subtitle">Check out the new shows this season</span>
+				<h1><?php the_title(); ?></h1>
+				<?php if(get_field('subtitle')) :?>
+					<span class="subtitle"><?php the_field('subtitle'); ?></span>
+				<?php endif; ?>
 			</section>
 		</section>
 
@@ -29,10 +31,18 @@
 			        array(
 			            'taxonomy'  => 'show_category',
 			            'field'     => 'slug',
-			            'terms'     => 'new-show-2015'
+			            'terms'     => 'new-show-2015',
+			            'operator'  => 'IN'
+		            ),
+			        array(
+			            'taxonomy'  => 'show_category',
+			            'field'     => 'slug',
+			            'terms'     => 'tba',
+			            'operator'  => 'NOT IN'
 		            )
 			    ) );
 			$tvlist = new WP_Query( $args );
+			$showCount = $tvlist->post_count;
 		?>
 
 		<section class="new-shows new-show-list">
@@ -47,9 +57,11 @@
 						</article>
 					</div>
 					<?php
-						if ( $i != 0 && $i % 2 == 0 ) {
-							echo '</div>';
-							echo '<div class="wrap nomargin-cols">';
+						if ( $i != 0 && $i % 2 != 0 ) {
+							if ( $i != ($showCount - 1) ) {
+								echo '</div>';
+								echo '<div class="wrap">';
+							}
 						}
 					?>
 				<?php $i++; endwhile; ?>

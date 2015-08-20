@@ -12,8 +12,10 @@
 		<section id="page-title" class="wrap">
 			<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/calendar.svg" alt="Calendar" class="title-icon">
 			<section class="title">
-				<h1>All Premieres</h1>
-				<span class="subtitle">View all the premieres for this season</span>
+				<h1><?php the_title(); ?></h1>
+				<?php if(get_field('subtitle')) :?>
+					<span class="subtitle"><?php the_field('subtitle'); ?></span>
+				<?php endif; ?>
 			</section>
 		</section>
 
@@ -53,7 +55,7 @@
 			<?php while ( $tvlist->have_posts() ) : $tvlist->the_post(); ?>
 				<article class="show">
 					<p class="date"><?php echo date('l, M. d',strtotime( get_post_meta($post->ID, 'show_premiere', true) )) ?></p>
-					<h3 class="show-title"><?php the_title(); ?></h3> <p class="show-info"><?php echo get_post_meta($post->ID, 'show_time', true); ?> | <?php echo get_post_meta($post->ID, 'show_network', true); ?></p>
+					<h3 class="show-title"><a href="<?php echo get_post_meta($post->ID, 'show_link', true); ?>"><?php the_title(); ?> <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/icons/external-link.svg" alt="learn more" class="external-link"></a></h3> <p class="show-info"><?php echo get_post_meta($post->ID, 'show_time', true); ?> | <?php echo get_post_meta($post->ID, 'show_network', true); ?></p>
 				</article>
 			<?php endwhile; ?>
 		</section>

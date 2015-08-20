@@ -12,8 +12,10 @@
 		<section id="page-title" class="wrap">
 			<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/calendar.svg" alt="Calendar" class="title-icon">
 			<section class="title">
-				<h1>Midseason Premieres</h1>
-				<span class="subtitle">View all midseason premieres</span>
+				<h1><?php the_title(); ?></h1>
+				<?php if(get_field('subtitle')) :?>
+					<span class="subtitle"><?php the_field('subtitle'); ?></span>
+				<?php endif; ?>
 			</section>
 		</section>
 
@@ -32,6 +34,12 @@
 			            'field'     => 'slug',
 			            'terms'     => 'midseason',
 			            'operator'  => 'IN'
+		            ),
+			        array(
+			            'taxonomy'  => 'show_category',
+			            'field'     => 'slug',
+			            'terms'     => 'tba',
+			            'operator'  => 'NOT IN'
 		            )
 			    ) );
 			$tvlist = new WP_Query( $args );
@@ -45,7 +53,7 @@
 				</article>
 			<?php $i++; endwhile; ?>
 			<?php if ($i == 0) : ?>
-				<p><i>No midseason premieres</i></p>
+				<p><i>No midseason premieres scheduled at this time</i></p>
 			<?php endif; ?>
 		</section>
 

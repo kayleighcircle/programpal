@@ -69,13 +69,4 @@
 			</div>
 		</section>
 
-		<footer id="page-footer" class="text-center">
-			<div class="page-wrap">
-				<p>
-					Made by an avid fangirl<br>
-					<a href="http://www.kayleighjwilliams.com">www.kayleighjwilliams.com</a>
-				</p>
-			</div>
-		</footer>
-
 	</section>
